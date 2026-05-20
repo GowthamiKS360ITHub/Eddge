@@ -1,0 +1,50 @@
+---
+// src/layouts/Layout.astro
+import NavBar from "../components/NavBar.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="EDDGE helps parents understand their child's strengths and growth using calm, science-backed guidance." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/eddge-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+  </head>
+  <body class="font-sans text-[color:var(--color-brand-ink)] bg-paper">
+    <NavBar />
+    <slot />
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  @import "tailwindcss";
+
+  @theme {
+    --font-body: 'Rubik', ui-sans-serif, system-ui, sans-serif;
+    --font-heading: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+    --font-ui: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --color-brand-blue: #248AC3;
+    --color-brand-ink: #0A0A0A;
+    --color-paper: #F4F1E8;
+  }
+
+  @layer base {
+    html { scroll-behavior: smooth; }
+    body { background: var(--color-paper); font-family: var(--font-body); }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+    button, input, select, textarea, label, nav, .primary-btn, .secondary-btn, .hero-badge, .trust-pill { font-family: var(--font-ui); }
+  }
+</style>

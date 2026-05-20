@@ -1,0 +1,172 @@
+---
+import {
+  Dna,
+  Lock,
+  Users,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
+
+import logoUrl from "../assets/eddge-logo.png?url";
+
+const trustItems = [
+  {
+    icon: Lock,
+    label: "100% Confidential",
+  },
+  {
+    icon: Users,
+    label: "Expert Guided",
+  },
+  {
+    icon: Dna,
+    label: "Science-backed",
+  },
+];
+---
+
+<footer class="bg-white border-t border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+    <!-- TOP -->
+    <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 pb-8 border-b border-slate-200">
+
+      <!-- BRAND -->
+      <div class="max-w-md">
+        <div class="flex items-center gap-4 mb-4">
+
+          <div class="w-14 h-14 rounded-2xl bg-[#F4F1E8] border border-slate-200 flex items-center justify-center overflow-hidden">
+            <img
+              src={logoUrl}
+              alt="EDDGE Logo"
+              class="w-full h-full object-contain"
+            />
+          </div>
+
+          <div>
+           
+            <p class="text-sm text-slate-500">
+              Understand your child better
+            </p>
+          </div>
+        </div>
+
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Helping parents make clearer developmental decisions with
+          science-backed insights and expert guidance.
+        </p>
+      </div>
+
+      <!-- LINKS -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-10">
+
+        <div>
+          <h4 class="text-sm font-bold text-[#248AC3] uppercase tracking-[0.2em] mb-4">
+            Company
+          </h4>
+
+          <ul class="space-y-3">
+            <li>
+              <a href="#" class="text-sm text-slate-600 hover:text-brand-blue transition-colors">
+                About
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="text-sm text-slate-600 hover:text-brand-blue transition-colors">
+                Science
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="text-sm text-slate-600 hover:text-brand-blue transition-colors">
+                Experts
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-bold text-[#248AC3] uppercase tracking-[0.2em] mb-4">
+            Resources
+          </h4>
+
+          <ul class="space-y-3">
+            <li>
+              <a href="#" class="text-sm text-slate-600 hover:text-brand-blue transition-colors">
+                FAQs
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="text-sm text-slate-600 hover:text-brand-blue transition-colors">
+                Privacy
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="text-sm text-slate-600 hover:text-brand-blue transition-colors">
+                Terms
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-span-2 sm:col-span-1">
+          <h4 class="text-sm font-bold text-[#248AC3] uppercase tracking-[0.2em] mb-4">
+            Contact
+          </h4>
+
+          <div class="space-y-3">
+
+            <div class="flex items-center gap-3 text-sm text-slate-600">
+              <Mail size={16} className="text-brand-blue" />
+              hello@eddge.com
+            </div>
+
+            <div class="flex items-center gap-3 text-sm text-slate-600">
+              <Phone size={16} className="text-brand-blue" />
+              +91 98765 43210
+            </div>
+
+            <div class="flex items-center gap-3 text-sm text-slate-600">
+              <MapPin size={16} className="text-brand-blue" />
+              Bangalore
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BOTTOM -->
+    <div class="pt-6 flex flex-col md:flex-row items-center justify-between gap-5">
+
+      <p class="text-xs text-slate-500 text-center md:text-left">
+        © 2026 EDDGE. All rights reserved.
+      </p>
+
+      <!-- TRUST BADGES -->
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        {
+          trustItems.map((item) => {
+            const Icon = item.icon;
+
+            return (
+              <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-[#F4F1E8] border border-slate-200">
+                <Icon size={14} className="text-brand-blue" />
+
+                <span class="text-[11px] font-bold uppercase tracking-[0.12em] text-slate-700">
+                  {item.label}
+                </span>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+
+  </div>
+</footer>

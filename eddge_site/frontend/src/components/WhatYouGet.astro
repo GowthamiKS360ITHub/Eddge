@@ -1,0 +1,238 @@
+---
+import {
+  BarChart3,
+  FileText,
+  Lightbulb,
+  Users,
+} from "lucide-react";
+
+import strengthImg from "../assets/strength.png";
+import environmentImg from "../assets/environment.png";
+import lifeStageImg from "../assets/life_stage.png";
+import expertImg from "../assets/expert_cource.png";
+
+const deliverables = [
+  {
+    icon: BarChart3,
+    title: "Strength Index",
+    desc: "Discover what your child is naturally best at.",
+    img: strengthImg.src,
+  },
+  {
+    icon: FileText,
+    title: "Environment Blueprint",
+    desc: "Build surroundings that unlock focus & growth.",
+    img: environmentImg.src,
+  },
+  {
+    icon: Lightbulb,
+    title: "Growth Guidance",
+    desc: "Clear direction for every stage of development.",
+    img: lifeStageImg.src,
+  },
+  {
+    icon: Users,
+    title: "Expert Counseling",
+    desc: "Talk directly with child development experts.",
+    img: expertImg.src,
+  },
+];
+---
+
+<div class="overflow-hidden">
+
+  <!-- ================= WHAT YOU GET (DARK BLUE SECTION) ================= -->
+  <section
+    id="what"
+    class="relative py-28 overflow-hidden bg-[#050B1A] text-white scroll-mt-28"
+  >
+
+    <!-- GLOW BACKGROUND -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[#248AC3]/25 blur-[180px] rounded-full"></div>
+      <div class="absolute bottom-[-150px] right-[-120px] w-[500px] h-[500px] bg-indigo-500/20 blur-[160px] rounded-full"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+
+      <!-- HEADER -->
+      <div class="text-center max-w-3xl mx-auto mb-20">
+
+        <span class="inline-flex items-center px-5 py-2 rounded-full border border-white/10 bg-white/5 text-xs tracking-[0.3em] uppercase text-white/70">
+          What You Get
+        </span>
+
+        <h2 class="mt-7 text-5xl md:text-6xl font-bold leading-tight">
+          Understand your child
+          <span class="block text-[#4CC9F0]">
+            like never before
+          </span>
+        </h2>
+
+        <p class="mt-6 text-lg text-white/60 leading-relaxed">
+          A structured intelligence system that transforms parenting confusion
+          into confidence, clarity, and actionable guidance.
+        </p>
+
+      </div>
+
+      <!-- CARDS -->
+      <div class="grid md:grid-cols-2 gap-7">
+
+        {deliverables.map((item) => {
+          const Icon = item.icon;
+
+          return (
+            <div class="group relative rounded-[30px] border border-white/10 bg-white/[0.03] backdrop-blur-xl p-7 hover:bg-white/[0.05] transition-all duration-300 hover:-translate-y-1">
+
+              <div class="relative z-10 flex gap-5">
+
+                <div class="w-14 h-14 rounded-2xl bg-[#4CC9F0]/10 flex items-center justify-center text-[#4CC9F0] shrink-0">
+                  <Icon size={22} />
+                </div>
+
+                <div>
+                  <h3 class="text-xl font-semibold text-white">
+                    {item.title}
+                  </h3>
+
+                  <p class="mt-2 text-sm text-white/60">
+                    {item.desc}
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+          );
+        })}
+
+      </div>
+
+    </div>
+  </section>
+
+ <!-- ================= REGISTER ================= -->
+<section
+  id="register"
+  class="relative py-28 bg-white scroll-mt-28"
+>
+
+  <div class="max-w-6xl mx-auto px-6">
+
+    <!-- ATTACHED CONTAINER -->
+    <div class="grid lg:grid-cols-2 gap-0 items-stretch rounded-[40px] overflow-hidden border border-slate-200 shadow-lg">
+
+      <!-- ================= LEFT ================= -->
+      <div class="relative bg-gradient-to-br from-[#1d4ed8] via-[#248AC3] to-[#0ea5e9] p-12 md:p-14 text-white">
+
+        <!-- subtle glow -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.25),transparent)]"></div>
+
+        <div class="relative z-10">
+
+          <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+            Join the <span class="text-black">EDDGE</span> Waitlist
+          </h2>
+
+          <p class="mt-5 text-white/80 text-lg leading-relaxed">
+            Get early access to structured child intelligence insights,
+            expert guidance, and personalized development support.
+          </p>
+
+          <div class="mt-10 space-y-4 text-sm text-white/90">
+
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-white"></span>
+              Deep child profiling system
+            </div>
+
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-white"></span>
+              Expert-backed recommendations
+            </div>
+
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-white"></span>
+              Early access advantages
+            </div>
+
+          </div>
+
+          <div class="mt-10 p-5 rounded-2xl bg-black/10 border border-white/10 backdrop-blur-sm">
+            <p class="italic text-white/90">
+              “We turn parenting uncertainty into structured clarity.”
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ================= RIGHT (FORM CARD) ================= -->
+      <div class="bg-white p-10 lg:p-12">
+
+        <!-- HEADER -->
+        <span class="text-[#248AC3] uppercase tracking-[0.25em] text-xs font-semibold">
+          Get Started
+        </span>
+
+        <h3 class="mt-4 text-4xl font-bold text-slate-900 leading-tight">
+          Create your profile
+        </h3>
+
+        <p class="mt-3 text-slate-500">
+          Takes less than 60 seconds to join.
+        </p>
+
+        <!-- FORM -->
+        <form class="mt-10 space-y-5">
+
+          <input class="input-light" placeholder="Parent Name" />
+          <input class="input-light" placeholder="Email Address" />
+          <input class="input-light" placeholder="Phone Number" />
+
+          <div class="grid grid-cols-2 gap-5">
+            <input class="input-light" placeholder="Child Age" />
+            <input class="input-light" placeholder="City" />
+          </div>
+
+          <button class="w-full rounded-2xl bg-[#248AC3] py-4 font-bold text-white hover:scale-[1.02] transition">
+            Get Early Access
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+</div>
+
+<!-- ================= INPUT STYLE ================= -->
+<style>
+  .input-light {
+    width: 100%;
+    padding: 16px 18px;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    background: #f8fafc;
+    color: #0f172a;
+    outline: none;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+  }
+
+  .input-light::placeholder {
+    color: #94a3b8;
+  }
+
+  .input-light:focus {
+    border-color: #248AC3;
+    box-shadow: 0 0 0 4px rgba(36, 138, 195, 0.12);
+    background: #fff;
+  }
+</style>

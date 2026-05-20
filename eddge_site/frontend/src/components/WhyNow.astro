@@ -1,0 +1,228 @@
+---
+import {
+  Sparkles,
+  Compass,
+  Brain,
+  HeartHandshake,
+  CheckCircle2,
+} from "lucide-react";
+
+const features = [
+  {
+    icon: Brain,
+    title: "Understand strengths",
+    desc: "Know what naturally fits your child.",
+  },
+  {
+    icon: Compass,
+    title: "Choose confidently",
+    desc: "Make better developmental decisions.",
+  },
+  {
+    icon: Sparkles,
+    title: "Discover potential",
+    desc: "Identify hidden abilities early.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Guided by experts",
+    desc: "Receive calm and practical guidance.",
+  },
+];
+
+const insights = [
+  "Natural strengths & tendencies",
+  "Right learning environment",
+  "Confidence in key decisions",
+  "Guidance designed for parents",
+];
+---
+<section
+  id="why"
+  class="relative py-24 bg-white overflow-hidden"
+>
+  <!-- Soft Background -->
+  <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(36,138,195,0.08),transparent_30%)]"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <!-- TOP -->
+    <div class="grid lg:grid-cols-2 gap-16 items-center mb-20">
+
+      <!-- LEFT CONTENT -->
+      <div>
+
+        <span
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#248AC3]/10 text-[#248AC3] text-sm font-bold uppercase tracking-[0.25em]"
+        >
+          WHY EDDGE
+        </span>
+
+        <h2
+          class="mt-6 text-4xl lg:text-4xl font-black leading-tight text-slate-900"
+        >
+          Understand your child
+
+          <span class="text-[#248AC3] block mt-2">
+            beyond assumptions.
+          </span>
+        </h2>
+
+        <p class="mt-7 text-lg leading-relaxed text-slate-600 max-w-xl">
+          EDDGE combines science-backed insights and expert guidance
+          to help parents make more confident decisions for their child.
+        </p>
+
+        <!-- MINI FEATURES -->
+        <div class="space-y-5 mt-10">
+
+          <div class="flex items-start gap-4">
+            <div
+              class="w-12 h-12 rounded-2xl bg-[#248AC3]/10 flex items-center justify-center shrink-0"
+            >
+              <Brain size={22} className="text-[#248AC3]" />
+            </div>
+
+            <div>
+              <h4 class="font-bold text-slate-900 text-lg">
+                Natural strengths
+              </h4>
+
+              <p class="text-slate-600 text-sm mt-1">
+                Understand what comes naturally to your child.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div
+              class="w-12 h-12 rounded-2xl bg-[#248AC3]/10 flex items-center justify-center shrink-0"
+            >
+              <Compass size={22} className="text-[#248AC3]" />
+            </div>
+
+            <div>
+              <h4 class="font-bold text-slate-900 text-lg">
+                Better decisions
+              </h4>
+
+              <p class="text-slate-600 text-sm mt-1">
+                Make calmer and more confident developmental choices.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div
+              class="w-12 h-12 rounded-2xl bg-[#248AC3]/10 flex items-center justify-center shrink-0"
+            >
+              <HeartHandshake size={22} className="text-[#248AC3]" />
+            </div>
+
+            <div>
+              <h4 class="font-bold text-slate-900 text-lg">
+                Expert support
+              </h4>
+
+              <p class="text-slate-600 text-sm mt-1">
+                Guidance designed for real parents and real challenges.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="relative">
+
+        <!-- Main Image -->
+        <div
+          class="rounded-[2.5rem] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.08)]"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200&auto=format&fit=crop"
+            alt="Parent and child"
+            class="w-full h-[560px] object-cover"
+          />
+        </div>
+
+        <!-- FLOAT CARD -->
+        <div
+          class="absolute bottom-6 left-6 right-6 bg-white rounded-[2rem] p-6 shadow-2xl border border-slate-100"
+        >
+
+          <div class="flex items-center gap-3 mb-5">
+
+           
+    
+
+          </div>
+
+          <!-- Points -->
+          <div class="grid grid-cols-2 gap-3">
+
+            {
+              insights.map((item) => (
+                <div
+                  class="flex items-center gap-2 bg-slate-50 rounded-xl px-3 py-3"
+                >
+                  <CheckCircle2
+                    size={16}
+                    className="text-[#248AC3]"
+                  />
+
+                  <span class="text-sm font-medium text-slate-700">
+                    {item}
+                  </span>
+                </div>
+              ))
+            }
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- BOTTOM FEATURE CARDS -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      {
+        features.map((item) => {
+          const Icon = item.icon;
+
+          return (
+            <div
+              class="bg-[#F8FAFC] hover:bg-white rounded-[2rem] p-7 border border-slate-100 hover:shadow-xl transition-all duration-300"
+            >
+
+              <div
+                class="w-14 h-14 rounded-2xl bg-[#248AC3]/10 flex items-center justify-center mb-5"
+              >
+                <Icon
+                  size={24}
+                  className="text-[#248AC3]"
+                />
+              </div>
+
+              <h3 class="text-lg font-bold text-slate-900 mb-2">
+                {item.title}
+              </h3>
+
+              <p class="text-sm text-slate-600 leading-relaxed">
+                {item.desc}
+              </p>
+
+            </div>
+          );
+        })
+      }
+
+    </div>
+
+  </div>
+</section>

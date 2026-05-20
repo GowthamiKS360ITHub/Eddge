@@ -1,0 +1,185 @@
+---
+import {
+  ShoppingCart,
+  Home as HomeIcon,
+  Microscope,
+  FileText,
+  MessageCircle,
+} from "lucide-react";
+
+const steps = [
+  {
+    step: "01",
+    icon: ShoppingCart,
+    title: "Order the test",
+    desc: "Choose your plan and start from home.",
+  },
+  {
+    step: "02",
+    icon: HomeIcon,
+    title: "Collect sample at home",
+    desc: "A gentle, easy saliva kit arrives with clear instructions.",
+  },
+  {
+    step: "03",
+    icon: Microscope,
+    title: "DNA analysis in certified labs",
+    desc: "A trusted lab processes your child’s sample carefully.",
+  },
+  {
+    step: "04",
+    icon: FileText,
+    title: "Receive personalized insights",
+    desc: "A warm, parent-friendly report arrives with key clarity.",
+  },
+  {
+    step: "05",
+    icon: MessageCircle,
+    title: "Expert guidance session",
+    desc: "Speak with our team to make the next step feel clear.",
+  },
+];
+---
+
+<section id="how" class="relative py-28 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-blue-50">
+
+  <!-- BACKGROUND GLOWS -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute -top-40 left-0 w-[500px] h-[500px] bg-[#248AC3]/10 blur-[160px] rounded-full"></div>
+    <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-indigo-200/20 blur-[160px] rounded-full"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+
+    <!-- HEADER -->
+    <div class="text-center max-w-3xl mx-auto mb-20">
+
+      
+ <span
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#248AC3]/10 text-[#248AC3] text-sm font-bold uppercase tracking-[0.25em]"
+        >
+         How It Works
+        </span>
+      <h2 class="text-4xl lg:text-4xl font-bold text-slate-900 mt-5 leading-tight">
+        Simple, guided,
+        <span class="block text-[#248AC3]">and science-backed</span>
+      </h2>
+
+      <p class="text-lg text-slate-600 mt-6 leading-relaxed">
+        Every step is designed to feel calm, simple, and supportive for parents.
+      </p>
+
+    </div>
+
+    <!-- DESKTOP FLOW (NEW STYLE) -->
+    <div class="hidden lg:block relative">
+
+  <!-- CONNECTING LINE -->
+  <div class="absolute top-24 left-10 right-10 h-[2px] bg-gradient-to-r from-[#248AC3]/20 via-[#248AC3]/40 to-[#248AC3]/20"></div>
+
+  <div class="grid grid-cols-5 gap-8 relative items-stretch">
+
+    {steps.map((item) => {
+      const Icon = item.icon;
+
+      return (
+        <div class="relative group h-full">
+
+          <!-- CARD -->
+          <div class="h-full bg-white/70 backdrop-blur-xl border border-white/60 rounded-3xl p-6 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col text-center">
+
+            <!-- STEP NUMBER -->
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-[#248AC3] text-white text-xs font-bold flex items-center justify-center shadow-md">
+              {item.step}
+            </div>
+
+            <!-- ICON (FIXED SIZE AREA) -->
+            <div class="w-14 h-14 mx-auto mt-3 rounded-2xl bg-[#248AC3]/10 text-[#248AC3] flex items-center justify-center shrink-0">
+              <Icon size={26} />
+            </div>
+
+            <!-- TITLE (FIXED HEIGHT AREA) -->
+            <div class="mt-5 min-h-[56px] flex items-center justify-center">
+              <h3 class="text-lg font-bold text-slate-900 leading-snug">
+                {item.title}
+              </h3>
+            </div>
+
+            <!-- DESCRIPTION (CONSISTENT HEIGHT) -->
+            <div class="mt-2 flex-1">
+              <p class="text-sm text-slate-600 leading-relaxed min-h-[72px]">
+                {item.desc}
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      );
+    })}
+
+  </div>
+</div>
+
+    <!-- MOBILE (CLEAN TIMELINE FLOW) -->
+    <div class="lg:hidden space-y-6">
+
+      {steps.map((item) => {
+        const Icon = item.icon;
+
+        return (
+          <div class="flex gap-5 bg-white/70 backdrop-blur-xl border border-white/60 rounded-3xl p-6 shadow-sm">
+
+            <!-- LEFT ICON + LINE -->
+            <div class="flex flex-col items-center">
+              <div class="w-12 h-12 rounded-2xl bg-[#248AC3]/10 text-[#248AC3] flex items-center justify-center">
+                <Icon size={20} />
+              </div>
+              <div class="w-[2px] flex-1 bg-[#248AC3]/10 mt-3"></div>
+            </div>
+
+            <!-- CONTENT -->
+            <div>
+              <div class="text-xs font-bold text-[#248AC3] tracking-[0.2em] uppercase">
+                Step {item.step}
+              </div>
+
+              <h3 class="text-lg font-bold text-slate-900 mt-2">
+                {item.title}
+              </h3>
+
+              <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+
+          </div>
+        );
+      })}
+
+    </div>
+
+    <!-- CTA STRIP (MODERNIZED) -->
+    <div class="mt-20 bg-white/70 backdrop-blur-xl border border-white/60 rounded-[2.5rem] p-10 shadow-xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+
+      <div class="max-w-2xl">
+        <h3 class="text-2xl font-bold text-slate-900 mb-3">
+          Built for clarity, not confusion.
+        </h3>
+
+        <p class="text-slate-600 text-lg leading-relaxed">
+          No overwhelming reports. No jargon. Just calm, practical insights that help you understand your child better.
+        </p>
+      </div>
+
+      <a
+        href="#register"
+        class="bg-[#248AC3] text-white px-8 py-4 rounded-2xl font-bold shadow-lg shadow-[#248AC3]/20 hover:scale-[1.03] transition"
+      >
+        Book Now
+      </a>
+
+    </div>
+
+  </div>
+</section>
