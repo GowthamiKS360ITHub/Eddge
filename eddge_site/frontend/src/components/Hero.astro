@@ -13,9 +13,10 @@ import {
 } from "lucide-react";
 
 import heroImg from "../assets/parent.jpg";
+import indian_family from "../assets/indian_family.png";
 
 const heroImgSrc =
-  typeof heroImg === "string" ? heroImg : heroImg?.src ?? "";
+  typeof heroImg === "string" ? indian_family : indian_family?.src ?? "";
 
 const features = [
   { icon: Dna, label: "Scientific" },
@@ -64,8 +65,8 @@ const features = [
         <div class="mt-10 flex flex-col sm:flex-row gap-4">
 
           <a
-            href="#register"
-            class="group bg-[#248AC3] text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-[#248AC3]/20 hover:scale-[1.02] transition flex items-center justify-center gap-3"
+            href="#"
+            class="open-register-modal group bg-[#248AC3] text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-[#248AC3]/20 hover:scale-[1.02] transition flex items-center justify-center gap-3"
           >
             Book Now
             <ArrowRight className="group-hover:translate-x-1 transition" size={20} />
@@ -78,7 +79,7 @@ const features = [
             <div class="w-10 h-10 rounded-full bg-[#248AC3]/10 flex items-center justify-center text-[#248AC3]">
               <Play size={16} fill="currentColor" />
             </div>
-            Watch Video
+            How it works
           </a>
 
         </div>
