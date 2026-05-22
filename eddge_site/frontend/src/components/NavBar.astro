@@ -1,5 +1,5 @@
 ---
-import logoUrl from "../assets/eddge-logo.png?url";
+import logoUrl from "../assets/eddge-mark.png?url";
 import { Menu, X, ArrowRight } from "lucide-react";
 ---
 
@@ -9,52 +9,58 @@ import { Menu, X, ArrowRight } from "lucide-react";
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
       <!-- LOGO -->
-      <a href="/" class="flex items-center shrink-0">
+      <a href="/" class="flex items-center gap-3 shrink-0">
         <img src={logoUrl} alt="EDDGE Logo" class="w-12 h-12 object-contain" />
+        <div class="flex flex-col">
+          <span class="text-2xl font-black text-[#248AC3] tracking-tight leading-none">EDDGE</span>
+          <span class="text-[10px] font-bold text-slate-900 tracking-[0.15em] mt-1">SEE BEYOND. GUIDE BETTER.</span>
+        </div>
       </a>
 
-      <!-- DESKTOP MENU -->
-      <div class="hidden md:flex items-center gap-10">
-        <a
-          href="#why"
-          class="text-sm font-bold text-slate-700 hover:text-brand-blue transition-colors"
-        >
-          Why EDDGE
-        </a>
+      <!-- RIGHT WING (MENU + CTA) -->
+      <div class="flex items-center gap-8">
+        <!-- DESKTOP MENU -->
+        <div class="hidden md:flex items-center gap-10">
+          <a
+            href="#why"
+            class="nav-item text-sm font-bold text-slate-700 hover:text-brand-blue transition-colors"
+          >
+            Why EDDGE
+          </a>
 
-        <a
-          href="#how"
-          class="text-sm font-bold text-slate-700 hover:text-brand-blue transition-colors"
-        >
-          How It Works
-        </a>
+          <a
+            href="#how"
+            class="nav-item text-sm font-bold text-slate-700 hover:text-brand-blue transition-colors"
+          >
+            How It Works
+          </a>
 
-        <a
-          href="#what"
-          class="text-sm font-bold text-slate-700 hover:text-brand-blue transition-colors"
-        >
-          What Users Get
-        </a>
-      </div>
+          <a
+            href="#what"
+            class="nav-item text-sm font-bold text-slate-700 hover:text-brand-blue transition-colors"
+          >
+            What Users Get
+          </a>
+        </div>
 
-      <!-- RIGHT -->
-      <div class="flex items-center gap-3">
-        <!-- CTA -->
-        <a
-          href="#"
-          class="open-register-modal hidden sm:flex items-center gap-2 px-6 py-3 rounded-full bg-[#248AC3] text-white text-sm font-bold hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-[#248AC3]/20"
-        >
-          Join Waitlist
-         
-        </a>
+        <!-- RIGHT -->
+        <div class="flex items-center gap-3">
+          <!-- CTA -->
+          <a
+            href="#"
+            class="open-register-modal hidden sm:flex items-center gap-2 px-6 py-3 rounded-full bg-[#248AC3] text-white text-sm font-bold hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-[#248AC3]/20"
+          >
+            Join Waitlist
+          </a>
 
-        <!-- MOBILE MENU BUTTON -->
-        <button
-          id="menuBtn"
-          class="md:hidden w-11 h-11 rounded-xl border border-slate-200 flex items-center justify-center bg-white"
-        >
-          <Menu size={20} className="text-slate-800" />
-        </button>
+          <!-- MOBILE MENU BUTTON -->
+          <button
+            id="menuBtn"
+            class="md:hidden w-11 h-11 rounded-xl border border-slate-200 flex items-center justify-center bg-white"
+          >
+            <Menu size={20} className="text-slate-800" />
+          </button>
+        </div>
       </div>
     </div>
 
@@ -65,21 +71,21 @@ import { Menu, X, ArrowRight } from "lucide-react";
       >
         <a
           href="#why"
-          class="mobile-link block text-base font-bold text-slate-800 hover:text-brand-blue transition-colors"
+          class="nav-item mobile-link block text-base font-bold text-slate-800 hover:text-brand-blue transition-colors"
         >
           Why EDDGE
         </a>
 
         <a
           href="#how"
-          class="mobile-link block text-base font-bold text-slate-800 hover:text-brand-blue transition-colors"
+          class="nav-item mobile-link block text-base font-bold text-slate-800 hover:text-brand-blue transition-colors"
         >
           How It Works
         </a>
 
         <a
           href="#what"
-          class="mobile-link block text-base font-bold text-slate-800 hover:text-brand-blue transition-colors"
+          class="nav-item mobile-link block text-base font-bold text-slate-800 hover:text-brand-blue transition-colors"
         >
           What Users Get
         </a>
@@ -102,6 +108,7 @@ import { Menu, X, ArrowRight } from "lucide-react";
   const mobileMenu = document.getElementById("mobileMenu");
 
   const mobileLinks = document.querySelectorAll(".mobile-link");
+  const navItems = document.querySelectorAll(".nav-item");
 
   // MOBILE MENU TOGGLE
   menuBtn?.addEventListener("click", () => {
@@ -114,4 +121,37 @@ import { Menu, X, ArrowRight } from "lucide-react";
       mobileMenu?.classList.add("hidden");
     });
   });
+
+  // ACTIVE LINK HIGHLIGHTING ON SCROLL
+  function updateActiveLink() {
+    let current = "";
+    const sections = document.querySelectorAll("section[id]");
+    
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= window.innerHeight / 3) {
+        current = section.getAttribute("id") || "";
+      }
+    });
+
+    navItems.forEach((link) => {
+      // Reset classes
+      link.classList.remove("text-brand-blue", "underline", "underline-offset-8", "decoration-2");
+      if (link.classList.contains("mobile-link")) {
+        link.classList.add("text-slate-800");
+      } else {
+        link.classList.add("text-slate-700");
+      }
+      
+      // Apply active classes
+      if (current && link.getAttribute("href") === `#${current}`) {
+        link.classList.add("text-brand-blue", "underline", "underline-offset-8", "decoration-2");
+        link.classList.remove("text-slate-700", "text-slate-800");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", updateActiveLink);
+  // Initial check
+  updateActiveLink();
 </script>
