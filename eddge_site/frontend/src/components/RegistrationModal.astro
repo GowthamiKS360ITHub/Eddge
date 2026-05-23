@@ -43,6 +43,15 @@ import RegistrationForm from "./RegistrationForm.astro";
     e.preventDefault();
     if (!modal || !content) return;
     
+    const titleEl = content.querySelector('h3');
+    if (titleEl) {
+      if (e.currentTarget.dataset.title) {
+        titleEl.textContent = e.currentTarget.dataset.title;
+      } else {
+        titleEl.textContent = "Create your profile";
+      }
+    }
+
     modal.classList.remove('hidden');
     modal.classList.add('flex');
     document.body.style.overflow = 'hidden';

@@ -2,6 +2,7 @@
 // src/layouts/Layout.astro
 import NavBar from "../components/NavBar.astro";
 import Footer from "../components/Footer.astro";
+import ScrollToTop from "../components/ScrollToTop.astro";
 
 interface Props {
   title: string;
@@ -14,37 +15,115 @@ const { title } = Astro.props;
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="EDDGE helps parents understand their child's strengths and growth using calm, science-backed guidance." />
+    <meta
+      name="description"
+      content="EDDGE helps parents understand their child's strengths and growth using calm, science-backed guidance."
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/eddge-logo.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
-  <body class="font-sans text-[color:var(--color-brand-ink)] bg-paper">
+  <body
+    class="bg-[color:var(--color-paper)] text-[color:var(--color-brand-ink)]"
+  >
     <NavBar />
     <slot />
     <Footer />
+    <ScrollToTop />
   </body>
 </html>
 
 <style is:global>
   @import "tailwindcss";
 
+  /* Gotham Font Faces */
+
+  @font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-Light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-Book.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Gotham";
+    src: url("/fonts/gotham/Gotham-Black.otf") format("opentype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
   @theme {
-    --font-body: 'Rubik', ui-sans-serif, system-ui, sans-serif;
-    --font-heading: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
-    --font-ui: 'Inter', ui-sans-serif, system-ui, sans-serif;
-    --color-brand-blue: #248AC3;
-    --color-brand-ink: #0A0A0A;
-    --color-paper: #F4F1E8;
+    --font-body: "Gotham", ui-sans-serif, system-ui, sans-serif;
+    --font-heading: "Gotham", ui-sans-serif, system-ui, sans-serif;
+    --font-ui: "Gotham", ui-sans-serif, system-ui, sans-serif;
+
+    --color-brand-blue: #248ac3;
+    --color-brand-blue-soft: rgba(36, 138, 195, 0.1);
+
+    --color-brand-ink: #0a0a0a;
+    --color-brand-muted: #64748b;
+
+    --color-paper: #f4f1e8;
+    --color-surface: #ffffff;
   }
 
   @layer base {
-    html { scroll-behavior: smooth; }
-    body { background: var(--color-paper); font-family: var(--font-body); }
-    h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
-    button, input, select, textarea, label, nav, .primary-btn, .secondary-btn, .hero-badge, .trust-pill { font-family: var(--font-ui); }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--color-paper);
+      font-family: var(--font-body);
+      color: var(--color-brand-ink);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--font-heading);
+    }
+
+    button,
+    input,
+    select,
+    textarea,
+    label,
+    nav,
+    .primary-btn,
+    .secondary-btn,
+    .hero-badge,
+    .trust-pill {
+      font-family: var(--font-ui);
+    }
   }
 </style>

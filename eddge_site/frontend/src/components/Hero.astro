@@ -16,7 +16,7 @@ import heroImg from "../assets/parent.jpg";
 import indian_family from "../assets/indian_family.png";
 
 const heroImgSrc =
-  typeof heroImg === "string" ? indian_family : indian_family?.src ?? "";
+  typeof heroImg === "string" ? indian_family : (indian_family?.src ?? "");
 
 const features = [
   { icon: Dna, label: "Scientific" },
@@ -26,35 +26,48 @@ const features = [
 ];
 ---
 
-<section class="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-blue-50">
-
+<section
+  class="relative overflow-hidden bg-gradient-to-b from-slate-100 via-white to-blue-100"
+>
   <!-- SOFT BACKGROUNDS -->
   <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute -top-40 -left-40 w-[500px] h-[500px] bg-[#248AC3]/10 blur-[160px] rounded-full"></div>
-    <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-indigo-200/20 blur-[160px] rounded-full"></div>
+    <div
+      class="absolute -top-40 -left-40 w-[500px] h-[500px] bg-[color:var(--color-brand-blue-soft)] blur-[160px] rounded-full"
+    >
+    </div>
+    <div
+      class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[color:var(--color-brand-blue-soft)] blur-[160px] rounded-full"
+    >
+    </div>
   </div>
 
   <div class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-5 pb-24">
-
     <div class="grid lg:grid-cols-2 gap-16 items-center">
-
       <!-- LEFT -->
       <div>
-
         <!-- BADGE -->
-        <div class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm text-slate-700 text-sm font-medium">
-          <div class="flex items-center justify-center w-6 h-6 rounded-full bg-[#248AC3]/10">
-            <Sparkles size={14} className="text-[#248AC3]" />
+        <div
+          class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-[color:var(--color-surface)] border border-slate-200 shadow-sm text-slate-700 text-sm font-medium"
+        >
+          <div
+            class="flex items-center justify-center w-6 h-6 rounded-full bg-[color:var(--color-brand-blue-soft)]"
+          >
+            <Sparkles
+              size={14}
+              className="text-[color:var(--color-brand-blue)]"
+            />
           </div>
           Science-backed developmental insights
         </div>
 
         <!-- TITLE -->
-        <h1 class="mt-6 text-4xl lg:text-5xl font-black leading-[1.05] text-slate-900">
+        <h1
+          class="mt-6 text-4xl lg:text-5xl font-black leading-[1.05] text-[color:var(--color-brand-ink)]"
+        >
           You see 10%
           <br />
           The rest is your child’s
-          <span class="text-[#248AC3]">real story.</span>
+          <span class="text-[color:var(--color-brand-blue)]">real story.</span>
         </h1>
 
         <!-- SUBTEXT -->
@@ -63,54 +76,58 @@ const features = [
           expert guidance, and personalized clarity — without guesswork.
         </p>
 
-
         <!-- TRUST (NO BOXES → INLINE FLOW) -->
         <div class="mt-12 flex flex-wrap gap-6 text-slate-500 text-sm">
+          {
+            features.map((item) => {
+              const Icon = item.icon;
 
-          {features.map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <div class="flex items-center gap-2">
-                <Icon size={18} className="text-[#248AC3]" />
-                <span>{item.label}</span>
-              </div>
-            );
-          })}
-
+              return (
+                <div class="flex items-center gap-2">
+                  <Icon
+                    size={18}
+                    className="text-[color:var(--color-brand-blue)]"
+                  />
+                  <span>{item.label}</span>
+                </div>
+              );
+            })
+          }
         </div>
 
         <!-- CTA -->
         <div class="mt-10 flex flex-col sm:flex-row gap-4">
-
           <a
             href="#"
-            class="open-register-modal group bg-[#248AC3] text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-[#248AC3]/20 hover:scale-[1.02] transition flex items-center justify-center gap-3"
+            class="open-register-modal group bg-[color:var(--color-brand-blue)] text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-[color:var(--color-brand-blue-soft)] hover:scale-[1.02] transition flex items-center justify-center gap-3"
           >
             Book Now
-            <ArrowRight className="group-hover:translate-x-1 transition" size={20} />
+            <ArrowRight
+              className="group-hover:translate-x-1 transition"
+              size={20}
+            />
           </a>
 
           <a
             href="#videosection"
-            class="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-white shadow-sm hover:shadow-md transition text-slate-800 font-semibold"
+            class="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-[color:var(--color-surface)] shadow-sm hover:shadow-md transition text-[color:var(--color-brand-ink)] border border-[color:var(--color-brand-blue-soft)] font-semibold"
           >
-            <div class="w-10 h-10 rounded-full bg-[#248AC3]/10 flex items-center justify-center text-[#248AC3]">
+            <div
+              class="w-10 h-10 rounded-full bg-[color:var(--color-brand-blue)] flex items-center justify-center text-[color:var(--color-surface)]"
+            >
               <Play size={16} fill="currentColor" />
             </div>
             How it works
           </a>
-
         </div>
-
-
       </div>
 
       <!-- RIGHT (FLOATING IMAGE STYLE) -->
       <div class="relative hidden lg:block">
-
         <!-- MAIN IMAGE -->
-        <div class="rounded-[2.5rem] overflow-hidden shadow-2xl transform hover:scale-[1.02] transition duration-500 ">
+        <div
+          class="rounded-[2.5rem] overflow-hidden shadow-2xl transform hover:scale-[1.02] transition duration-500"
+        >
           <img
             src={heroImgSrc}
             class="w-full h-[520px] object-cover"
@@ -119,12 +136,7 @@ const features = [
         </div>
 
         <!-- FLOATING CARDS (NO BOX GRID FEEL) -->
-       
-     
-
       </div>
-
     </div>
-
   </div>
 </section>
