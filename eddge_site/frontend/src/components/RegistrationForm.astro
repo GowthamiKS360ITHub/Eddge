@@ -1,25 +1,63 @@
 ---
----
-<form class="registration-form space-y-5">
 
-  <input name="parentName" required class="input-light" placeholder="Parent Name" />
-  <input name="email" required type="email" class="input-light" placeholder="Email Address" />
-  <input name="phone" required type="tel" class="input-light" placeholder="Phone Number" />
+---
+
+<form class="registration-form space-y-5">
+  <input
+    name="parentName"
+    required
+    class="input-light"
+    placeholder="Parent Name"
+  />
+  <input
+    name="email"
+    required
+    type="email"
+    class="input-light"
+    placeholder="Email Address"
+  />
+  <input
+    name="phone"
+    required
+    type="tel"
+    class="input-light"
+    placeholder="Phone Number"
+  />
 
   <div class="grid grid-cols-2 gap-5">
-    <input name="childAge" required type="number" class="input-light" placeholder="Child Age" />
+    <input
+      name="childAge"
+      required
+      type="number"
+      class="input-light"
+      placeholder="Child Age"
+    />
     <input name="city" required class="input-light" placeholder="City" />
   </div>
 
-  <button type="submit" class="submit-btn w-full rounded-2xl bg-[#248AC3] py-4 font-bold text-white hover:scale-[1.02] transition">
+  <button
+    type="submit"
+    class="submit-btn w-full rounded-2xl bg-[#248AC3] py-4 font-bold text-white hover:scale-[1.02] transition"
+  >
     Get Early Access
   </button>
-  
-  <div class="success-message hidden mt-4 p-4 rounded-xl bg-green-50 border border-green-200 text-green-700 text-sm font-medium flex items-center gap-2">
-    <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+
+  <div
+    class="success-message hidden mt-4 p-4 rounded-xl bg-green-50 border border-green-200 text-green-700 text-sm font-medium flex items-center gap-2"
+  >
+    <svg
+      class="w-5 h-5 shrink-0"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      ><path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M5 13l4 4L19 7"></path></svg
+    >
     Profile created successfully! We will contact you soon.
   </div>
-
 </form>
 
 <style>
@@ -40,7 +78,7 @@
   }
 
   .input-light:focus {
-    border-color: #248AC3;
+    border-color: #248ac3;
     box-shadow: 0 0 0 4px rgba(36, 138, 195, 0.12);
     background: #fff;
   }
@@ -48,42 +86,42 @@
 
 <script>
   // Setup form submission for all instances of .registration-form
-  const forms = document.querySelectorAll('.registration-form');
+  const forms = document.querySelectorAll(".registration-form");
   forms.forEach((form) => {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
       const formEl = e.target;
-      const successMsg = formEl.querySelector('.success-message');
-      const submitBtn = formEl.querySelector('.submit-btn');
-      
-      if(submitBtn) {
+      const successMsg = formEl.querySelector(".success-message");
+      const submitBtn = formEl.querySelector(".submit-btn");
+
+      if (submitBtn) {
         const origText = submitBtn.textContent;
         submitBtn.textContent = "Submitting...";
         submitBtn.disabled = true;
-        submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
-        
+        submitBtn.classList.add("opacity-70", "cursor-not-allowed");
+
         // Simulate API delay
         setTimeout(() => {
           formEl.reset();
-          if(successMsg) successMsg.classList.remove('hidden');
+          if (successMsg) successMsg.classList.remove("hidden");
           submitBtn.textContent = origText;
           submitBtn.disabled = false;
-          submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
-          
+          submitBtn.classList.remove("opacity-70", "cursor-not-allowed");
+
           setTimeout(() => {
-            if(successMsg) successMsg.classList.add('hidden');
-            
+            if (successMsg) successMsg.classList.add("hidden");
+
             // Auto close modal if inside modal
-            const modal = formEl.closest('#registrationModal');
+            const modal = formEl.closest("#registrationModal");
             if (modal) {
-               modal.classList.add('hidden');
-               modal.classList.remove('flex');
-               document.body.style.overflow = '';
-               const content = document.getElementById('modalContent');
-               if (content) {
-                   content.classList.remove('scale-100', 'opacity-100');
-                   content.classList.add('scale-95', 'opacity-0');
-               }
+              modal.classList.add("hidden");
+              modal.classList.remove("flex");
+              document.body.style.overflow = "";
+              const content = document.getElementById("modalContent");
+              if (content) {
+                content.classList.remove("scale-100", "opacity-100");
+                content.classList.add("scale-95", "opacity-0");
+              }
             }
           }, 3000);
         }, 1200);

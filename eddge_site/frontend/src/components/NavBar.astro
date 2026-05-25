@@ -12,8 +12,14 @@ import { Menu, X, ArrowRight } from "lucide-react";
       <a href="/" class="flex items-center gap-3 shrink-0">
         <img src={logoUrl} alt="EDDGE Logo" class="w-12 h-12 object-contain" />
         <div class="flex flex-col">
-          <span class="text-2xl font-black text-[#248AC3] tracking-tight leading-none">EDDGE</span>
-          <span class="text-[10px] font-bold text-slate-900 tracking-[0.15em] mt-1">SEE BEYOND. GUIDE BETTER.</span>
+          <span
+            class="text-2xl font-black text-[#248AC3] tracking-tight leading-none"
+            >EDDGE</span
+          >
+          <span
+            class="text-[10px] font-bold text-slate-900 tracking-[0.15em] mt-1"
+            >SEE BEYOND. GUIDE BETTER.</span
+          >
         </div>
       </a>
 
@@ -128,7 +134,7 @@ import { Menu, X, ArrowRight } from "lucide-react";
   function updateActiveLink() {
     let current = "";
     const sections = document.querySelectorAll("section[id]");
-    
+
     sections.forEach((section) => {
       const rect = section.getBoundingClientRect();
       if (rect.top <= window.innerHeight / 3) {
@@ -138,16 +144,26 @@ import { Menu, X, ArrowRight } from "lucide-react";
 
     navItems.forEach((link) => {
       // Reset classes
-      link.classList.remove("text-brand-blue", "underline", "underline-offset-8", "decoration-2");
+      link.classList.remove(
+        "text-brand-blue",
+        "underline",
+        "underline-offset-8",
+        "decoration-2",
+      );
       if (link.classList.contains("mobile-link")) {
         link.classList.add("text-slate-800");
       } else {
         link.classList.add("text-slate-700");
       }
-      
+
       // Apply active classes
       if (current && link.getAttribute("href") === `#${current}`) {
-        link.classList.add("text-brand-blue", "underline", "underline-offset-8", "decoration-2");
+        link.classList.add(
+          "text-brand-blue",
+          "underline",
+          "underline-offset-8",
+          "decoration-2",
+        );
         link.classList.remove("text-slate-700", "text-slate-800");
       }
     });
