@@ -5,18 +5,16 @@ import {
   Users,
   Microscope,
   Sparkles,
-  MapPin,
-  GraduationCap,
-  MessageCircle,
   ArrowRight,
   Play,
 } from "lucide-react";
 
-import heroImg from "../assets/parent.jpg";
 import indian_family from "../assets/indian_family.png";
 
 const heroImgSrc =
-  typeof heroImg === "string" ? indian_family : (indian_family?.src ?? "");
+  typeof indian_family === "string"
+    ? indian_family
+    : (indian_family?.src ?? "");
 
 const features = [
   { icon: Dna, label: "Scientific" },
@@ -27,7 +25,7 @@ const features = [
 ---
 
 <section
-  class="relative overflow-hidden bg-gradient-to-b from-slate-100 via-white to-blue-100"
+  class="relative overflow-hidden bg-gradient-to-b from-[color:var(--hero-bg-start)] via-[color:var(--hero-bg-mid)] to-[color:var(--hero-bg-end)] transition-colors duration-200"
 >
   <!-- SOFT BACKGROUNDS -->
   <div class="absolute inset-0 pointer-events-none">
@@ -47,7 +45,7 @@ const features = [
       <div>
         <!-- BADGE -->
         <div
-          class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-[color:var(--color-surface)] border border-slate-200 shadow-sm text-slate-700 text-sm font-medium"
+          class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full dark:border-neutral-800 shadow-sm text-[color:var(--color-brand-ink)] dark:text-[color:var(--color-brand-ink)] dark:bg-[color:var(--color-surface)] text-sm font-medium transition-colors"
         >
           <div
             class="flex items-center justify-center w-6 h-6 rounded-full bg-[color:var(--color-brand-blue-soft)]"
@@ -71,13 +69,17 @@ const features = [
         </h1>
 
         <!-- SUBTEXT -->
-        <p class="mt-6 text-lg text-slate-600 max-w-xl leading-relaxed">
+        <p
+          class="mt-6 text-lg text-[color:var(--color-brand-muted)] dark:text-[color:var(--color-brand-muted)] max-w-xl leading-relaxed transition-colors"
+        >
           EDDGE helps you understand your child through science-backed insights,
           expert guidance, and personalized clarity — without guesswork.
         </p>
 
-        <!-- TRUST (NO BOXES → INLINE FLOW) -->
-        <div class="mt-12 flex flex-wrap gap-6 text-slate-500 text-sm">
+        <!-- TRUST FEATURES -->
+        <div
+          class="mt-12 flex flex-wrap gap-6 text-slate-500 dark:text-slate-400 text-sm transition-colors"
+        >
           {
             features.map((item) => {
               const Icon = item.icon;
@@ -95,11 +97,11 @@ const features = [
           }
         </div>
 
-        <!-- CTA -->
+        <!-- CTA BUTTONS -->
         <div class="mt-10 flex flex-col sm:flex-row gap-4">
           <a
             href="#"
-            class="open-register-modal group bg-[color:var(--color-brand-blue)] text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-[color:var(--color-brand-blue-soft)] hover:scale-[1.02] transition flex items-center justify-center gap-3"
+            class="open-register-modal group bg-[color:var(--color-brand-blue)] text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-[color:var(--color-brand-blue-soft)] hover:scale-[1.02] active:scale-95 transition flex items-center justify-center gap-3"
           >
             Book Now
             <ArrowRight
@@ -115,18 +117,17 @@ const features = [
             <div
               class="w-10 h-10 rounded-full bg-[color:var(--color-brand-blue)] flex items-center justify-center text-[color:var(--color-surface)]"
             >
-              <Play size={16} fill="currentColor" />
+              <Play size={16} fill="currentColor" className="text-white" />
             </div>
             How it works
           </a>
         </div>
       </div>
 
-      <!-- RIGHT (FLOATING IMAGE STYLE) -->
+      <!-- RIGHT (IMAGE) -->
       <div class="relative hidden lg:block">
-        <!-- MAIN IMAGE -->
         <div
-          class="rounded-[2.5rem] overflow-hidden shadow-2xl transform hover:scale-[1.02] transition duration-500"
+          class="rounded-[2.5rem] overflow-hidden shadow-2xl dark:shadow-black/50 border border-slate-200/20 dark:border-neutral-800/50 transform hover:scale-[1.02] transition duration-500"
         >
           <img
             src={heroImgSrc}
@@ -134,9 +135,21 @@ const features = [
             alt="Parent and child"
           />
         </div>
-
-        <!-- FLOATING CARDS (NO BOX GRID FEEL) -->
       </div>
     </div>
   </div>
 </section>
+
+<style is:global>
+  :root {
+    --hero-bg-start: #f1f5f9; /* Slate 100 */
+    --hero-bg-mid: #ffffff; /* White */
+    --hero-bg-end: #dbeafe; /* Blue 100 */
+  }
+
+  html.dark {
+    --hero-bg-start: #090d16; /* Deep dark blue-grey */
+    --hero-bg-mid: #121214; /* Dark grey */
+    --hero-bg-end: #0d1527; /* Slate 950 transition shade */
+  }
+</style>

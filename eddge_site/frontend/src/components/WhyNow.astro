@@ -40,11 +40,11 @@ const insights = [
 
 <section
   id="why"
-  class="relative py-20 bg-[color:var(--color-surface)] overflow-hidden"
+  class="relative py-20 bg-surface overflow-hidden transition-colors duration-200"
 >
-  <!-- Soft Background -->
+  <!-- Soft Dynamic Background -->
   <div
-    class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,var(--color-brand-blue-soft),transparent_30%)]"
+    class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,var(--raw-brand-blue-soft),transparent_30%)]"
   >
   </div>
 
@@ -54,23 +54,21 @@ const insights = [
       <!-- LEFT CONTENT -->
       <div>
         <span
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[color:var(--color-brand-blue-soft)] text-[color:var(--color-brand-blue)] text-sm font-bold uppercase tracking-[0.25em]"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-blue-soft text-brand-blue text-sm font-bold uppercase tracking-[0.25em]"
         >
           WHY EDDGE
         </span>
 
         <h2
-          class="mt-6 text-4xl lg:text-5xl font-black leading-tight text-[color:var(--color-brand-ink)]"
+          class="mt-6 text-4xl lg:text-5xl font-black leading-tight text-brand-ink"
         >
           Understand your child
 
-          <span class="text-[color:var(--color-brand-blue)] block mt-2">
-            beyond assumptions.
-          </span>
+          <span class="text-brand-blue block mt-2"> beyond assumptions. </span>
         </h2>
 
         <p
-          class="mt-7 text-lg lg:text-xl leading-relaxed text-slate-600 max-w-xl"
+          class="mt-7 text-lg lg:text-xl leading-relaxed text-brand-muted max-w-xl transition-colors"
         >
           EDDGE combines science-backed insights and expert guidance to help
           parents make more confident decisions for their child.
@@ -83,14 +81,11 @@ const insights = [
               const Icon = item.icon;
 
               return (
-                <div class="flex items-center gap-3 bg-white/60 hover:bg-white border border-slate-200/60 hover:border-slate-200 rounded-full py-2.5 px-5 shadow-sm hover:shadow-md transition-all duration-300">
-                  <div class="bg-[color:var(--color-brand-blue-soft)] rounded-full p-1.5 group-hover:scale-110 transition-transform duration-300">
-                    <Icon
-                      size={20}
-                      className="text-[color:var(--color-brand-blue)]"
-                    />
+                <div class="flex items-center gap-3 bg-surface/60 hover:bg-surface border border-brand-muted/20 hover:border-brand-muted/40 rounded-full py-2.5 px-5 shadow-sm hover:shadow-md transition-all duration-300">
+                  <div class="bg-brand-blue-soft rounded-full p-1.5 transition-transform duration-300">
+                    <Icon size={20} className="text-brand-blue" />
                   </div>
-                  <span class="text-sm font-medium text-[color:var(--color-brand-ink)]">
+                  <span class="text-sm font-medium text-brand-ink">
                     {item.title}
                   </span>
                 </div>
@@ -104,7 +99,7 @@ const insights = [
       <div class="relative">
         <!-- Main Image -->
         <div
-          class="rounded-[2.5rem] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.08)]"
+          class="rounded-[2.5rem] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.08)] dark:shadow-[0_30px_80px_rgba(0,0,0,0.5)] border border-brand-muted/10"
         >
           <img
             src="https://images.openai.com/static-rsc-4/_VAhBfHOTdX2jXx9ISpHuYV3fNZlAqY2nsQi1LCV3oXglGbZjbn9085i5VkzpeQMmrFc9Vt5CmQbvsFnD5kKGu0-ImpRh4ZzLQOI-U7G0l64Sdekwc6PrvvOtrRyKmZOdHvoYsZtr7VND4Pc1-gumfVlaG6_KvaBcrYGm_vkLfo?purpose=inline"
@@ -115,7 +110,7 @@ const insights = [
 
         <!-- FLOAT CARD -->
         <div
-          class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-[0_20px_40px_rgba(0,0,0,0.06)] border border-white/50"
+          class="absolute bottom-6 left-6 right-6 bg-surface/95 backdrop-blur-md rounded-3xl p-6 shadow-[0_20px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-brand-muted/20 transition-all duration-200"
         >
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {
@@ -123,9 +118,11 @@ const insights = [
                 <div class="flex items-center gap-3">
                   <CheckCircle2
                     size={20}
-                    className="text-[color:var(--color-brand-blue)] shrink-0"
+                    className="text-brand-blue shrink-0"
                   />
-                  <span class="text-sm text-slate-700 font-medium">{item}</span>
+                  <span class="text-sm text-brand-ink/80 font-medium transition-colors">
+                    {item}
+                  </span>
                 </div>
               ))
             }

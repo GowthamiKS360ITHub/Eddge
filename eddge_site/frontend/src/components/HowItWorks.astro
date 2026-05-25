@@ -41,163 +41,167 @@ const steps = [
 ];
 ---
 
-<section id="how" class="relative py-20 overflow-hidden bg-gradient-to-b from-slate-100 via-white to-blue-100">
-
+<section
+  id="how"
+  class="relative py-20 overflow-hidden bg-gradient-to-b from-slate-100 via-white to-blue-100 dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-950 transition-colors duration-200"
+>
   <!-- BACKGROUND GLOWS -->
   <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute -top-40 left-0 w-[500px] h-[500px] bg-[color:var(--color-brand-blue-soft)] blur-[160px] rounded-full"></div>
-    <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[color:var(--color-brand-blue-soft)] blur-[160px] rounded-full"></div>
+    <div
+      class="absolute -top-40 left-0 w-[500px] h-[500px] bg-brand-blue-soft blur-[160px] rounded-full"
+    >
+    </div>
+    <div
+      class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-brand-blue-soft blur-[160px] rounded-full"
+    >
+    </div>
   </div>
 
   <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-
     <!-- HEADER -->
     <div class="text-center max-w-3xl mx-auto mb-20">
-
-      
- <span
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[color:var(--color-brand-blue-soft)] text-[color:var(--color-brand-blue)] text-sm font-bold uppercase tracking-[0.25em]"
-        >
-         How It Works
-        </span>
-      <h2 class="text-4xl lg:text-4xl font-bold text-slate-900 mt-5 leading-tight">
+      <span
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-blue-soft text-brand-blue text-sm font-bold uppercase tracking-[0.25em]"
+      >
+        How It Works
+      </span>
+      <h2
+        class="text-4xl lg:text-4xl font-bold text-brand-ink mt-5 leading-tight"
+      >
         Simple, guided,
-        <span class="block text-[color:var(--color-brand-blue)]">and science-backed</span>
+        <span class="block text-brand-blue">and science-backed</span>
       </h2>
 
-      <p class="text-lg text-[color:var(--color-brand-muted)] mt-6 leading-relaxed">
+      <p class="text-lg text-brand-muted mt-6 leading-relaxed">
         Every step is designed to feel calm, simple, and supportive for parents.
       </p>
-
     </div>
 
-    <!-- DESKTOP FLOW (NEW STYLE) -->
+    <!-- DESKTOP FLOW -->
     <div class="hidden lg:block relative">
+      <!-- CONNECTING LINE -->
+      <div
+        class="absolute top-24 left-10 right-10 h-[2px] bg-gradient-to-r from-brand-blue-soft via-brand-blue to-brand-blue-soft"
+      >
+      </div>
 
-  <!-- CONNECTING LINE -->
-  <div class="absolute top-24 left-10 right-10 h-[2px] bg-gradient-to-r from-[color:var(--color-brand-blue-soft)] via-[color:var(--color-brand-blue)] to-[color:var(--color-brand-blue-soft)]"></div>
+      <div class="grid grid-cols-5 gap-8 relative items-stretch">
+        {
+          steps.map((item) => {
+            const Icon = item.icon;
 
-  <div class="grid grid-cols-5 gap-8 relative items-stretch">
+            return (
+              <div class="relative group h-full">
+                <!-- CARD -->
+                <div class="h-full bg-surface/70 backdrop-blur-xl border border-brand-muted/20 hover:border-brand-blue/30 rounded-3xl p-6 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col text-center">
+                  <!-- STEP NUMBER -->
+                  <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-brand-blue text-white text-xs font-bold flex items-center justify-center shadow-md">
+                    {item.step}
+                  </div>
 
-    {steps.map((item) => {
-      const Icon = item.icon;
+                  <!-- ICON -->
+                  <div class="w-14 h-14 mx-auto mt-3 rounded-2xl bg-brand-blue-soft text-brand-blue flex items-center justify-center shrink-0">
+                    <Icon size={26} />
+                  </div>
 
-      return (
-        <div class="relative group h-full">
+                  <!-- TITLE -->
+                  <div class="mt-5 min-h-[56px] flex items-center justify-center">
+                    <h3 class="text-lg font-bold text-brand-ink leading-snug">
+                      {item.title}
+                    </h3>
+                  </div>
 
-          <!-- CARD -->
-          <div class="h-full bg-white/70 backdrop-blur-xl border border-white/60 rounded-3xl p-6 shadow-sm hover:shadow-2xl border-[color:var(--color-brand-blue-soft)]  hover:-translate-y-2 transition-all duration-300 flex flex-col text-center ">
-
-            <!-- STEP NUMBER -->
-            <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-[color:var(--color-brand-blue)] text-white text-xs font-bold flex items-center justify-center shadow-md">
-              {item.step}
-            </div>
-
-            <!-- ICON (FIXED SIZE AREA) -->
-            <div class="w-14 h-14 mx-auto mt-3 rounded-2xl bg-[color:var(--color-brand-blue-soft)] text-[color:var(--color-brand-blue)] flex items-center justify-center shrink-0">
-              <Icon size={26} />
-            </div>
-
-            <!-- TITLE (FIXED HEIGHT AREA) -->
-            <div class="mt-5 min-h-[56px] flex items-center justify-center">
-              <h3 class="text-lg font-bold text-slate-900 leading-snug">
-                {item.title}
-              </h3>
-            </div>
-
-            <!-- DESCRIPTION (CONSISTENT HEIGHT) -->
-            <div class="mt-2 flex-1">
-              <p class="text-sm text-[color:var(--color-brand-muted)] leading-relaxed min-h-[72px]">
-                {item.desc}
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-      );
-    })}
-
-  </div>
-</div>
-
-    <!-- MOBILE (CLEAN TIMELINE FLOW) -->
-    <div class="lg:hidden space-y-6">
-
-      {steps.map((item) => {
-        const Icon = item.icon;
-
-        return (
-          <div class="flex gap-5 bg-white/70 backdrop-blur-xl border border-white/60 rounded-3xl p-6 shadow-sm">
-
-            <!-- LEFT ICON + LINE -->
-            <div class="flex flex-col items-center">
-              <div class="w-12 h-12 rounded-2xl bg-[color:var(--color-brand-blue-soft)] text-[color:var(--color-brand-blue)] flex items-center justify-center">
-                <Icon size={20} />
+                  <!-- DESCRIPTION -->
+                  <div class="mt-2 flex-1">
+                    <p class="text-sm text-brand-muted leading-relaxed min-h-[72px]">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div class="w-[2px] flex-1 bg-[color:var(--color-brand-blue-soft)] mt-3"></div>
-            </div>
-
-            <!-- CONTENT -->
-            <div>
-              <div class="text-xs font-bold text-[color:var(--color-brand-blue)] tracking-[0.2em] uppercase">
-                Step {item.step}
-              </div>
-
-              <h3 class="text-lg font-bold text-slate-900 mt-2">
-                {item.title}
-              </h3>
-
-              <p class="text-sm text-[color:var(--color-brand-muted)] mt-2 leading-relaxed">
-                {item.desc}
-              </p>
-            </div>
-
-          </div>
-        );
-      })}
-
+            );
+          })
+        }
+      </div>
     </div>
 
-    <!-- CTA STRIP (MODERNIZED) -->
-    <div class="mt-20 bg-white/70 backdrop-blur-xl border border-white/60 rounded-[2.5rem] p-10 shadow-xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+    <!-- MOBILE (TIMELINE FLOW) -->
+    <div class="lg:hidden space-y-6">
+      {
+        steps.map((item) => {
+          const Icon = item.icon;
 
+          return (
+            <div class="flex gap-5 bg-surface/70 backdrop-blur-xl border border-brand-muted/20 rounded-3xl p-6 shadow-sm">
+              <!-- LEFT ICON + LINE -->
+              <div class="flex flex-col items-center">
+                <div class="w-12 h-12 rounded-2xl bg-brand-blue-soft text-brand-blue flex items-center justify-center">
+                  <Icon size={20} />
+                </div>
+                <div class="w-[2px] flex-1 bg-brand-blue-soft mt-3" />
+              </div>
+
+              <!-- CONTENT -->
+              <div>
+                <div class="text-xs font-bold text-brand-blue tracking-[0.2em] uppercase">
+                  Step {item.step}
+                </div>
+
+                <h3 class="text-lg font-bold text-brand-ink mt-2">
+                  {item.title}
+                </h3>
+
+                <p class="text-sm text-brand-muted mt-2 leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <!-- CTA STRIP -->
+    <div
+      class="mt-20 bg-surface/70 backdrop-blur-xl border border-brand-muted/20 rounded-[2.5rem] p-10 shadow-xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 transition-colors duration-200"
+    >
       <div class="max-w-2xl">
-        <h3 class="text-2xl font-bold text-slate-900 mb-3">
+        <h3 class="text-2xl font-bold text-brand-ink mb-3">
           Built for clarity, not confusion.
         </h3>
 
-        <p class="text-[color:var(--color-brand-muted)] text-lg leading-relaxed">
-          No overwhelming reports. No jargon. Just calm, practical insights that help you understand your child better.
+        <p class="text-brand-muted text-lg leading-relaxed">
+          No overwhelming reports. No jargon. Just calm, practical insights
+          that help you understand your child better.
         </p>
       </div>
 
       <a
         href="#register"
-        class="open-register-modal bg-[color:var(--color-brand-blue)] text-white px-8 py-4 rounded-2xl font-bold shadow-lg shadow-[color:var(--color-brand-blue)]/20 hover:scale-[1.03] transition"
+        class="open-register-modal bg-brand-blue text-white px-8 py-4 rounded-2xl font-bold shadow-lg shadow-brand-blue/20 hover:scale-[1.03] transition duration-200"
       >
         Book Now
       </a>
-
     </div>
-
   </div>
 </section>
 
 <script>
-  const howSection = document.getElementById('how');
+  const howSection = document.getElementById("how");
   let hasOpened = false;
-  
+
   if (howSection) {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && !hasOpened) {
-        hasOpened = true;
-        window.dispatchEvent(new CustomEvent('open-registration-modal'));
-        // Optional: stop observing once triggered
-        observer.disconnect();
-      }
-    }, { threshold: 0.3 }); // Adjust threshold as needed
-    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasOpened) {
+          hasOpened = true;
+          window.dispatchEvent(new CustomEvent("open-registration-modal"));
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
     observer.observe(howSection);
   }
 </script>

@@ -1,31 +1,31 @@
 ---
-
+// src/components/Register.astro
 ---
 
 <section
   id="register"
-  class="py-24 bg-[color:var(--color-surface)] border-t border-slate-200"
+  class="py-24 bg-surface border-t border-brand-muted/10 transition-colors duration-200"
 >
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div
-      class="bg-white rounded-[2.5rem] overflow-hidden border border-slate-200 shadow-sm"
+      class="bg-surface rounded-[2.5rem] overflow-hidden border border-brand-muted/20 shadow-sm"
     >
       <div class="grid lg:grid-cols-2">
         <!-- LEFT CONTENT -->
         <div class="p-10 lg:p-14 flex flex-col justify-center">
           <span
-            class="text-sm font-bold uppercase tracking-[0.25em] text-[color:var(--color-brand-blue)]"
+            class="text-sm font-bold uppercase tracking-[0.25em] text-brand-blue"
           >
             BOOK NOW
           </span>
 
           <h2
-            class="mt-5 text-4xl lg:text-5xl font-bold text-[#0A0A0A] leading-tight"
+            class="mt-5 text-4xl lg:text-5xl font-bold text-brand-ink leading-tight"
           >
             Give your child the clarity they deserve.
           </h2>
 
-          <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+          <p class="mt-6 text-lg text-brand-muted leading-relaxed">
             Start your EDDGE journey with science-backed insights and expert
             guidance designed for parents.
           </p>
@@ -33,31 +33,22 @@
           <!-- TRUST POINTS -->
           <div class="mt-8 space-y-4">
             <div class="flex items-center gap-3">
-              <div
-                class="w-2.5 h-2.5 rounded-full bg-[color:var(--color-brand-blue)]"
-              >
-              </div>
-              <p class="text-slate-700 font-medium">
+              <div class="w-2.5 h-2.5 rounded-full bg-brand-blue"></div>
+              <p class="text-brand-ink/90 font-medium">
                 Personalized developmental insights
               </p>
             </div>
 
             <div class="flex items-center gap-3">
-              <div
-                class="w-2.5 h-2.5 rounded-full bg-[color:var(--color-brand-blue)]"
-              >
-              </div>
-              <p class="text-slate-700 font-medium">
+              <div class="w-2.5 h-2.5 rounded-full bg-brand-blue"></div>
+              <p class="text-brand-ink/90 font-medium">
                 Guided by experts and counselors
               </p>
             </div>
 
             <div class="flex items-center gap-3">
-              <div
-                class="w-2.5 h-2.5 rounded-full bg-[color:var(--color-brand-blue)]"
-              >
-              </div>
-              <p class="text-slate-700 font-medium">
+              <div class="w-2.5 h-2.5 rounded-full bg-brand-blue"></div>
+              <p class="text-brand-ink/90 font-medium">
                 Secure and confidential process
               </p>
             </div>
@@ -65,9 +56,9 @@
 
           <!-- SMALL CARD -->
           <div
-            class="mt-10 bg-[color:var(--color-brand-blue-soft)] rounded-2xl p-5 border border-slate-200"
+            class="mt-10 bg-brand-blue-soft rounded-2xl p-5 border border-brand-muted/10"
           >
-            <p class="text-sm text-slate-600 leading-relaxed">
+            <p class="text-sm text-brand-muted leading-relaxed">
               “Understanding your child early can help you make calmer and more
               confident decisions through every stage of growth.”
             </p>
@@ -75,38 +66,44 @@
         </div>
 
         <!-- RIGHT FORM -->
-        <div class="bg-[color:var(--color-brand-blue)] p-8 lg:p-12">
-          <div class="bg-white rounded-[2rem] p-8 shadow-xl">
-            <h3 class="text-2xl font-bold text-[#0A0A0A] mb-2">Register Now</h3>
+        <div class="bg-brand-blue p-8 lg:p-12">
+          <div
+            class="bg-surface rounded-[2rem] p-8 shadow-xl transition-colors duration-200"
+          >
+            <h3 class="text-2xl font-bold text-brand-ink mb-2">Register Now</h3>
 
-            <p class="text-slate-500 mb-8">
+            <p class="text-brand-muted mb-8">
               Fill in your details to get started.
             </p>
 
             <form class="space-y-5">
               <!-- Parent Name -->
               <div>
-                <label class="text-sm font-semibold text-slate-700 mb-2 block">
+                <label
+                  class="text-sm font-semibold text-brand-ink/90 mb-2 block"
+                >
                   Parent Name
                 </label>
 
                 <input
                   type="text"
                   placeholder="Enter your name"
-                  class="w-full h-12 rounded-xl border border-slate-300 px-4 outline-none focus:ring-2 focus:ring-[color:var(--color-brand-blue)]"
+                  class="w-full h-12 rounded-xl border border-brand-muted/30 bg-surface px-4 outline-none focus:ring-2 focus:ring-brand-blue text-brand-ink placeholder-brand-muted/50 transition-all"
                 />
               </div>
 
               <!-- Child Name -->
               <div>
-                <label class="text-sm font-semibold text-slate-700 mb-2 block">
+                <label
+                  class="text-sm font-semibold text-brand-ink/90 mb-2 block"
+                >
                   Child Name
                 </label>
 
                 <input
                   type="text"
                   placeholder="Enter child name"
-                  class="w-full h-12 rounded-xl border border-slate-300 px-4 outline-none focus:ring-2 focus:ring-[color:var(--color-brand-blue)]"
+                  class="w-full h-12 rounded-xl border border-brand-muted/30 bg-surface px-4 outline-none focus:ring-2 focus:ring-brand-blue text-brand-ink placeholder-brand-muted/50 transition-all"
                 />
               </div>
 
@@ -114,7 +111,7 @@
               <div class="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label
-                    class="text-sm font-semibold text-slate-700 mb-2 block"
+                    class="text-sm font-semibold text-brand-ink/90 mb-2 block"
                   >
                     Child Age
                   </label>
@@ -122,13 +119,13 @@
                   <input
                     type="number"
                     placeholder="Age"
-                    class="w-full h-12 rounded-xl border border-slate-300 px-4 outline-none focus:ring-2 focus:ring-[color:var(--color-brand-blue)]"
+                    class="w-full h-12 rounded-xl border border-brand-muted/30 bg-surface px-4 outline-none focus:ring-2 focus:ring-brand-blue text-brand-ink placeholder-brand-muted/50 transition-all"
                   />
                 </div>
 
                 <div>
                   <label
-                    class="text-sm font-semibold text-slate-700 mb-2 block"
+                    class="text-sm font-semibold text-brand-ink/90 mb-2 block"
                   >
                     City
                   </label>
@@ -136,41 +133,45 @@
                   <input
                     type="text"
                     placeholder="City"
-                    class="w-full h-12 rounded-xl border border-slate-300 px-4 outline-none focus:ring-2 focus:ring-[color:var(--color-brand-blue)]"
+                    class="w-full h-12 rounded-xl border border-brand-muted/30 bg-surface px-4 outline-none focus:ring-2 focus:ring-brand-blue text-brand-ink placeholder-brand-muted/50 transition-all"
                   />
                 </div>
               </div>
 
               <!-- EMAIL -->
               <div>
-                <label class="text-sm font-semibold text-slate-700 mb-2 block">
+                <label
+                  class="text-sm font-semibold text-brand-ink/90 mb-2 block"
+                >
                   Email Address
                 </label>
 
                 <input
                   type="email"
                   placeholder="Enter email"
-                  class="w-full h-12 rounded-xl border border-slate-300 px-4 outline-none focus:ring-2 focus:ring-[color:var(--color-brand-blue)]"
+                  class="w-full h-12 rounded-xl border border-brand-muted/30 bg-surface px-4 outline-none focus:ring-2 focus:ring-brand-blue text-brand-ink placeholder-brand-muted/50 transition-all"
                 />
               </div>
 
               <!-- PHONE -->
               <div>
-                <label class="text-sm font-semibold text-slate-700 mb-2 block">
+                <label
+                  class="text-sm font-semibold text-brand-ink/90 mb-2 block"
+                >
                   Phone Number
                 </label>
 
                 <input
                   type="tel"
                   placeholder="Enter number"
-                  class="w-full h-12 rounded-xl border border-slate-300 px-4 outline-none focus:ring-2 focus:ring-[color:var(--color-brand-blue)]"
+                  class="w-full h-12 rounded-xl border border-brand-muted/30 bg-surface px-4 outline-none focus:ring-2 focus:ring-brand-blue text-brand-ink placeholder-brand-muted/50 transition-all"
                 />
               </div>
 
               <!-- BUTTON -->
               <button
                 type="submit"
-                class="w-full h-14 rounded-xl bg-[color:var(--color-brand-blue)] text-white font-bold text-lg hover:opacity-90 transition-all"
+                class="w-full h-14 rounded-xl bg-brand-blue text-white font-bold text-lg hover:opacity-90 transition-all shadow-md shadow-brand-blue/10"
               >
                 Book Now
               </button>

@@ -9,37 +9,41 @@ import RegistrationForm from "./RegistrationForm.astro";
 >
   <!-- Overlay -->
   <div
-    class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity"
+    class="absolute inset-0 bg-neutral-950/50 backdrop-blur-sm transition-opacity"
     id="modalOverlay"
   >
   </div>
 
-  <!-- Modal Content -->
+  <!-- Modal Content Container -->
   <div
-    class="relative z-10 w-full max-w-lg bg-white rounded-[2rem] shadow-2xl p-8 lg:p-10 m-4 transform transition-all scale-95 opacity-0 duration-300"
+    class="relative z-10 w-full max-w-lg bg-surface rounded-[2rem] border border-brand-muted/15 shadow-2xl dark:shadow-black/50 p-8 lg:p-10 m-4 transform transition-all scale-95 opacity-0 duration-300 transition-colors"
     id="modalContent"
   >
+    <!-- Close Button -->
     <button
       id="closeRegistrationModalBtn"
-      class="absolute top-6 right-6 w-10 h-10 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-800 flex items-center justify-center transition-colors"
+      class="absolute top-6 right-6 w-10 h-10 rounded-full bg-neutral-100 dark:bg-neutral-800 text-brand-muted hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:text-brand-ink flex items-center justify-center transition-all cursor-pointer"
     >
       <X size={20} />
     </button>
 
     <span
-      class="text-[#248AC3] uppercase tracking-[0.25em] text-xs font-semibold"
+      class="text-brand-blue uppercase tracking-[0.25em] text-xs font-semibold"
     >
       Get Started
     </span>
 
     <h3
-      class="mt-3 text-3xl lg:text-4xl font-bold text-slate-900 leading-tight"
+      class="mt-3 text-3xl lg:text-4xl font-bold text-brand-ink leading-tight"
     >
       Create your profile
     </h3>
 
-    <p class="mt-2 mb-8 text-slate-500">Takes less than 60 seconds to join.</p>
+    <p class="mt-2 mb-8 text-brand-muted">
+      Takes less than 60 seconds to join.
+    </p>
 
+    <!-- Injection of our responsive Form component -->
     <RegistrationForm />
   </div>
 </div>
