@@ -20,7 +20,7 @@ import RegistrationForm from "./RegistrationForm.astro";
     id="modalContent"
   >
     <button
-      id="closeModalBtn"
+      id="closeRegistrationModalBtn"
       class="absolute top-6 right-6 w-10 h-10 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-800 flex items-center justify-center transition-colors"
     >
       <X size={20} />
@@ -47,7 +47,7 @@ import RegistrationForm from "./RegistrationForm.astro";
 <script>
   const modal = document.getElementById("registrationModal");
   const overlay = document.getElementById("modalOverlay");
-  const closeBtn = document.getElementById("closeModalBtn");
+  const closeBtn = document.getElementById("closeRegistrationModalBtn");
   const content = document.getElementById("modalContent");
 
   const openTriggers = document.querySelectorAll(".open-register-modal");
