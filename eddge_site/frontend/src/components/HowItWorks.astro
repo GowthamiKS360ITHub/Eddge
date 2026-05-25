@@ -183,3 +183,21 @@ const steps = [
 
   </div>
 </section>
+
+<script>
+  const howSection = document.getElementById('how');
+  let hasOpened = false;
+  
+  if (howSection) {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !hasOpened) {
+        hasOpened = true;
+        window.dispatchEvent(new CustomEvent('open-registration-modal'));
+        // Optional: stop observing once triggered
+        observer.disconnect();
+      }
+    }, { threshold: 0.3 }); // Adjust threshold as needed
+    
+    observer.observe(howSection);
+  }
+</script>

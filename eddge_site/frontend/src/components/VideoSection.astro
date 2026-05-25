@@ -1,6 +1,6 @@
 ---
-import { Play, ArrowRight } from "lucide-react";
-import eddgeVideoSrc from "../assets/eddge-video.mp4";
+import { Play, ArrowRight, X } from "lucide-react";
+import eddgeVideoSrc from "../assets/eddge-video2.mp4";
 import thumbnail from "../assets/thumbnail.png";
 ---
 
@@ -89,6 +89,9 @@ import thumbnail from "../assets/thumbnail.png";
             class="w-full h-full object-cover"
             poster={thumbnail.src}
             playsinline
+            autoplay
+            muted
+            loop
           >
             <source src={eddgeVideoSrc} type="video/mp4" />
           </video>
@@ -98,7 +101,7 @@ import thumbnail from "../assets/thumbnail.png";
             id="videoOverlay"
             class="absolute inset-0 flex items-center justify-center z-20 bg-black/5 group-hover:bg-black/10 transition-colors duration-300 cursor-pointer"
           >
-            <button
+            <!-- <button
               id="playBtn"
               class="relative w-14 h-14 rounded-full bg-[var(--color-brand-blue)] text-white shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
             >
@@ -107,7 +110,7 @@ import thumbnail from "../assets/thumbnail.png";
                 fill="currentColor"
                 className="ml-1 relative z-10"
               />
-            </button>
+            </button> -->
           </div>
         </div>
       </div>
@@ -137,9 +140,12 @@ import thumbnail from "../assets/thumbnail.png";
         <div>
           <button
             id="inlinePlayBtn"
-            class="inline-flex items-center gap-1.5 text-[var(--color-brand-blue)] font-semibold hover:gap-2.5 transition-all duration-300 group text-[15px]"
+            class="inline-flex items-center cursor-pointer gap-1.5 text-[var(--color-brand-blue)] font-semibold hover:gap-2.5 transition-all duration-300 group text-[15px]"
           >
-            Play Video <ArrowRight size={18} className="transition-transform" />
+            Watch Video <ArrowRight
+              size={18}
+              className="transition-transform"
+            />
           </button>
         </div>
       </div>
@@ -147,51 +153,116 @@ import thumbnail from "../assets/thumbnail.png";
   </div>
 </section>
 
+<!-- VIDEO MODAL -->
+<div
+  id="videoModal"
+  class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm"
+>
+  <div class="relative w-full max-w-5xl mx-auto px-4 sm:px-6">
+    <div
+      id="videoModalContent"
+      class="relative w-full aspect-video bg-black rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl scale-95 transition-transform duration-300"
+    >
+      <video
+        id="popupVideo"
+        class="w-full h-full outline-none"
+        controls
+        playsinline
+      >
+        <source src={eddgeVideoSrc} type="video/mp4" />
+      </video>
+      <button
+        id="closeModalBtn"
+        class="absolute top-4 right-4 z-10 w-10 h-10 bg-black/40 hover:bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-colors"
+      >
+        <X size={20} />
+      </button>
+    </div>
+  </div>
+</div>
+
 <script>
-  const video = document.getElementById("eddgeVideo");
+  const inlineVideo = document.getElementById("eddgeVideo") as HTMLVideoElement;
+  const popupVideo = document.getElementById("popupVideo") as HTMLVideoElement;
   const playBtn = document.getElementById("playBtn");
   const inlinePlayBtn = document.getElementById("inlinePlayBtn");
   const overlay = document.getElementById("videoOverlay");
+  const videoModal = document.getElementById("videoModal");
+  const videoModalContent = document.getElementById("videoModalContent");
+  const closeModalBtn = document.getElementById("closeModalBtn");
 
-  const togglePlay = () => {
-    if (video instanceof HTMLVideoElement) {
-      if (video.paused) {
-        video.play();
-      } else {
-        video.pause();
-      }
+  const openModal = () => {
+    if (!videoModal || !videoModalContent) return;
+
+    // Open modal
+    videoModal.classList.remove("pointer-events-none");
+    videoModal.classList.add("opacity-100");
+    videoModal.classList.remove("opacity-0");
+    videoModalContent.classList.add("scale-100");
+    videoModalContent.classList.remove("scale-95");
+
+    // Pause inline video
+    if (inlineVideo && !inlineVideo.paused) {
+      inlineVideo.pause();
+    }
+
+    // Play popup video
+    if (popupVideo) {
+      popupVideo.currentTime = 0;
+      popupVideo.play().catch((e) => console.log("Popup play prevented:", e));
+    }
+  };
+
+  const closeModal = () => {
+    if (!videoModal || !videoModalContent) return;
+
+    // Close modal
+    videoModal.classList.add("pointer-events-none");
+    videoModal.classList.remove("opacity-100");
+    videoModal.classList.add("opacity-0");
+    videoModalContent.classList.remove("scale-100");
+    videoModalContent.classList.add("scale-95");
+
+    // Pause popup video
+    if (popupVideo) {
+      popupVideo.pause();
+    }
+
+    // Resume inline video
+    if (inlineVideo && inlineVideo.paused) {
+      inlineVideo
+        .play()
+        .catch((e) => console.log("Inline resume prevented:", e));
     }
   };
 
   playBtn?.addEventListener("click", (e) => {
     e.stopPropagation();
-    togglePlay();
+    openModal();
   });
 
-  overlay?.addEventListener("click", togglePlay);
+  overlay?.addEventListener("click", openModal);
+  inlinePlayBtn?.addEventListener("click", openModal);
+  closeModalBtn?.addEventListener("click", closeModal);
 
-  inlinePlayBtn?.addEventListener("click", togglePlay);
+  // Close on backdrop click
+  videoModal?.addEventListener("click", (e) => {
+    if (
+      e.target === videoModal ||
+      e.target === videoModalContent?.parentElement
+    ) {
+      closeModal();
+    }
+  });
 
-  if (video instanceof HTMLVideoElement) {
-    video.addEventListener("play", () => {
-      if (overlay instanceof HTMLElement) {
-        overlay.style.opacity = "0";
-        overlay.style.pointerEvents = "none";
-      }
-    });
-
-    video.addEventListener("pause", () => {
-      if (overlay instanceof HTMLElement) {
-        overlay.style.opacity = "1";
-        overlay.style.pointerEvents = "auto";
-      }
-    });
-
-    video.addEventListener("ended", () => {
-      if (overlay instanceof HTMLElement) {
-        overlay.style.opacity = "1";
-        overlay.style.pointerEvents = "auto";
-      }
-    });
-  }
+  // Handle escape key
+  document.addEventListener("keydown", (e) => {
+    if (
+      e.key === "Escape" &&
+      videoModal &&
+      !videoModal.classList.contains("pointer-events-none")
+    ) {
+      closeModal();
+    }
+  });
 </script>

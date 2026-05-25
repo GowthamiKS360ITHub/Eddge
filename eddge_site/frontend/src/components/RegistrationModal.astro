@@ -40,12 +40,12 @@ import RegistrationForm from "./RegistrationForm.astro";
   const openTriggers = document.querySelectorAll('.open-register-modal');
   
   function openModal(e) {
-    e.preventDefault();
+    if (e && e.preventDefault) e.preventDefault();
     if (!modal || !content) return;
     
     const titleEl = content.querySelector('h3');
     if (titleEl) {
-      if (e.currentTarget.dataset.title) {
+      if (e && e.currentTarget && e.currentTarget.dataset && e.currentTarget.dataset.title) {
         titleEl.textContent = e.currentTarget.dataset.title;
       } else {
         titleEl.textContent = "Create your profile";
@@ -62,6 +62,8 @@ import RegistrationForm from "./RegistrationForm.astro";
       content.classList.add('scale-100', 'opacity-100');
     }, 10);
   }
+  
+  window.addEventListener('open-registration-modal', openModal);
   
   function closeModal() {
     if (!modal || !content) return;
