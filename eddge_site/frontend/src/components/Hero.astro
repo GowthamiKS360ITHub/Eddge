@@ -18,7 +18,7 @@ const heroImgSrc =
 
 const features = [
   { icon: Dna, label: "Scientific" },
-  { icon: Lock, label: "100% Confidential" },
+  { icon: Lock, label: "Confidential" },
   { icon: Users, label: "Counselor Led" },
   { icon: Microscope, label: "Expert Backed" },
 ];
@@ -78,7 +78,7 @@ const features = [
 
         <!-- TRUST FEATURES -->
         <div
-          class="mt-12 flex flex-wrap gap-6 text-slate-500 dark:text-slate-400 text-sm transition-colors"
+          class="mt-12 grid grid-cols-2 gap-4 sm:flex sm:flex-wrap sm:gap-6 text-slate-500 dark:text-slate-400 text-sm transition-colors"
         >
           {
             features.map((item) => {
@@ -88,9 +88,9 @@ const features = [
                 <div class="flex items-center gap-2">
                   <Icon
                     size={18}
-                    className="text-[color:var(--color-brand-blue)]"
+                    className="text-[color:var(--color-brand-blue)] shrink-0"
                   />
-                  <span>{item.label}</span>
+                  <span class="leading-tight">{item.label}</span>
                 </div>
               );
             })
@@ -98,26 +98,28 @@ const features = [
         </div>
 
         <!-- CTA BUTTONS -->
-        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+        <div class="mt-10 flex flex-row gap-3 sm:gap-4">
           <a
             href="#"
-            class="open-register-modal group bg-[color:var(--color-brand-blue)] text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-[color:var(--color-brand-blue-soft)] hover:scale-[1.02] active:scale-95 transition flex items-center justify-center gap-3"
+            class="open-register-modal group bg-[color:var(--color-brand-blue)] text-white px-4 py-3 sm:px-8 sm:py-4 rounded-2xl font-bold text-sm sm:text-lg shadow-xl shadow-[color:var(--color-brand-blue-soft)] hover:scale-[1.02] active:scale-95 transition flex items-center justify-center gap-2 sm:gap-3 flex-1 sm:flex-none whitespace-nowrap"
           >
             Book Now
             <ArrowRight
-              className="group-hover:translate-x-1 transition"
-              size={20}
+              className="group-hover:translate-x-1 transition w-4 h-4 sm:w-5 sm:h-5"
             />
           </a>
 
           <a
             href="#videosection"
-            class="flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-[color:var(--color-surface)] shadow-sm hover:shadow-md transition text-[color:var(--color-brand-ink)] border border-[color:var(--color-brand-blue-soft)] font-semibold"
+            class="flex items-center justify-center gap-2 sm:gap-3 px-4 py-3 sm:px-8 sm:py-4 rounded-2xl bg-[color:var(--color-surface)] shadow-sm hover:shadow-md transition text-[color:var(--color-brand-ink)] border border-[color:var(--color-brand-blue-soft)] font-semibold text-sm sm:text-base flex-1 sm:flex-none whitespace-nowrap"
           >
             <div
-              class="w-10 h-10 rounded-full bg-[color:var(--color-brand-blue)] flex items-center justify-center text-[color:var(--color-surface)]"
+              class="w-7 h-7 sm:w-10 sm:h-10 shrink-0 rounded-full bg-[color:var(--color-brand-blue)] flex items-center justify-center text-[color:var(--color-surface)]"
             >
-              <Play size={16} fill="currentColor" className="text-white" />
+              <Play
+                fill="currentColor"
+                className="text-white w-3 h-3 sm:w-4 sm:h-4"
+              />
             </div>
             How it works
           </a>
