@@ -9,6 +9,11 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+const lightLogo = "/H Logo_Black.png";
+const darkLogo = "/H Logo_White.png";
+const footerLogoLight = "/Stack Logo_Blue.png";
+const footerLogoDark = "/Stack Logo_White.png";
 ---
 
 <!doctype html>
@@ -17,7 +22,7 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="Built on two decades of work in child development and the trust of 86,000+ parents across India. Eddge gives you a clearer read on who your child is, and what they need next"
+      content="Built on two decades of work in child development and the trust of parents across India. Eddge gives you a clearer read on who your child is, and what they need next"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/eddge-logo.png" />
@@ -42,9 +47,9 @@ const { title } = Astro.props;
   <body
     class="bg-[color:var(--color-paper)] text-[color:var(--color-brand-ink)] transition-colors duration-200"
   >
-    <NavBar />
+    <NavBar lightLogo={lightLogo} darkLogo={darkLogo} />
     <slot />
-    <Footer />
+    <Footer footerLogoLight={footerLogoLight} footerLogoDark={footerLogoDark} />
     <ScrollToTop />
   </body>
 </html>

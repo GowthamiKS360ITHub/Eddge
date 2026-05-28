@@ -1,7 +1,14 @@
 ---
-import logoUrl from "../assets/eddge-mark.png?url";
 import { Menu, ArrowRight } from "lucide-react";
 import ThemeToggle from "./ThemeToggle.astro";
+
+interface Props {
+  lightLogo?: string;
+  darkLogo?: string;
+}
+
+const { lightLogo = "/H Logo_Black.png", darkLogo = "/H Logo_White.png" } =
+  Astro.props;
 ---
 
 <nav
@@ -10,14 +17,23 @@ import ThemeToggle from "./ThemeToggle.astro";
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
       <!-- LOGO -->
-      <a href="/" class="flex items-center gap-3 shrink-0">
-        <img src={logoUrl} alt="EDDGE Logo" class="w-12 h-12 object-contain" />
+      <a href="/" class="flex justify-center items-center gap-3 shrink-0">
+        <img
+          src={lightLogo}
+          alt="EDDGE Logo"
+          class="w-40 h-40 object-contain dark:hidden"
+        />
+        <img
+          src={darkLogo}
+          alt="EDDGE Logo"
+          class="w-40 h-40 object-contain hidden dark:block"
+        />
         <div class="flex flex-col">
-          <span
+          <!-- <span
             class="text-2xl font-black text-[color:var(--color-brand-blue)] tracking-tight leading-none"
           >
             EDDGE
-          </span>
+          </span> -->
           <!-- <span
             class="text-[10px] font-bold text-[color:var(--color-brand-ink)] tracking-[0.15em] mt-1 opacity-80"
           >

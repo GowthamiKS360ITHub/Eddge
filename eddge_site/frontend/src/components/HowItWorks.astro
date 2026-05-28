@@ -188,20 +188,20 @@ const steps = [
 
 <script>
   const howSection = document.getElementById("how");
-  let hasOpened = false;
+  // let hasOpened = false;
 
-  if (howSection) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !hasOpened) {
-          hasOpened = true;
-          window.dispatchEvent(new CustomEvent("open-registration-modal"));
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 }
-    );
+  // if (howSection) {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       if (entries[0].isIntersecting && !hasOpened) {
+  //         hasOpened = true;
+  //         window.dispatchEvent(new CustomEvent("open-registration-modal"));
+  //         observer.disconnect();
+  //       }
+  //     },
+  //     { threshold: 0.3 }
+  //   );
 
-    observer.observe(howSection);
-  }
+  //   observer.observe(howSection);
+  // }
 </script>
