@@ -25,7 +25,8 @@ const footerLogoDark = "/Stack Logo_White.png";
       content="Built on two decades of work in child development and the trust of parents across India. Eddge gives you a clearer read on who your child is, and what they need next"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/eddge-logo.png" />
+    <link rel="icon" type="image/png" href={footerLogoLight} media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href={footerLogoDark} media="(prefers-color-scheme: dark)" />
     <title>{title}</title>
 
     <!-- Inline script to apply dark mode early and prevent flashing -->
